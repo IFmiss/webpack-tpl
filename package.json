@@ -4,6 +4,7 @@
   "description": "webpack-tpl",
   "main": "webpack.config.js",
   "dependencies": {
+    "d-js-utils": "^1.0.1",
     "d-loading": "^1.0.1",
     "hoek": "^5.0.3",
     "wx-audio": "^1.0.0"
@@ -26,10 +27,8 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-latest": "^6.24.1",
     "better-scroll": "^1.8.4",
-    "c-video": "^1.0.7",
     "compass-mixins": "^0.12.10",
     "css-loader": "^0.28.10",
-    "d-video": "^1.0.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.0.6",
     "node-sass": "^4.9.2",
