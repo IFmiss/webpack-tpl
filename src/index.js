@@ -1,3 +1,9 @@
 import './style.scss'
 import DJS from 'd-js-utils'
-DJS.utils.console(DJS.utils.formatDate('yyyy-MM-dd hh:mm:ss', new Date()))
+import WxAudio from 'wx-audio'
+console.log(WxAudio)
+const a = new WxAudio ({
+  ele: '.audio'
+})
+
+DJS.utils.console(`Webpack通用环境`)
