@@ -8,5 +8,6 @@ QQ交流群： 424418160
 - less, sass, stylus支持
 - d-utils-js通用js的支持
 - webpack版本4.0+, 支持热更新
+- 支持typescript
 
 ![](https://github.com/IFmiss/webpack-tpl/blob/master/static/demo.png)
