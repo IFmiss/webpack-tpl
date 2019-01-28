@@ -1,14 +1,18 @@
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+// HtmlWebpackPlugin
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const resolve = function (dir) {
 	return path.resolve(__dirname, dir);
 }
+
 const extractCss = new ExtractTextPlugin({
-  filename: "css/[name]-[contenthash].css",
+  filename: "css/[name]-[hash].css",
   disable: process.env.NODE_ENV === "development"
 });
+
 module.exports = {
   entry: {
     app: './src/index.js'
@@ -21,54 +25,34 @@ module.exports = {
   resolve: {
 		alias: {
 			'src': resolve('src'),
-			'commonjs': resolve('src/commonjs'),
-			'scss': resolve('src/scss'),
-			'stylus': resolve('src/stylus'),
-			'script': resolve('src/script'),
-			'static': resolve('static'),
+			'script': resolve('src/script')
 		}
 	},
-  plugins: [
-    new CleanWebpackPlugin(['dist']),
-    new HtmlWebpackPlugin ({
+	plugins: [
+		new HtmlWebpackPlugin ({
       filename: 'index.html',
       template: 'index.html',
-      inject: true
-    }),
-    extractCss
-  ],
+			inject: true,
+			favicon: 'src/assets/favicon/favicon.ico'
+		}),
+
+		extractCss
+	],
   module: {
 		rules: [
 			{
-				test: /\.css$/,
+				test: /\.(sa|sc|c)ss$/,
         use: ExtractTextPlugin.extract({
 					fallback:"style-loader",
-					use:["css-loader"]
-				})
-			},
-			{
-				test: /\.scss$/,
-				use: ExtractTextPlugin.extract({
-					fallback:"style-loader",
-					use:[
-						{
-							loader: 'css-loader'
-						},
-						{
-							loader: 'sass-loader'
-						}
-					]
+					use:["css-loader","sass-loader"]
 				})
 			},
 			{
 				test: /\.less$/,
-				use: [{
-					loader: 'style-loader' // creates style nodes from JS strings
-				}, {
-					loader: 'css-loader' // translates CSS into CommonJS
-				}, {
-					loader: 'less-loader' // compiles Less to CSS
-				}]
+				use: ExtractTextPlugin.extract({
+					fallback:"style-loader",
+					use:["css-loader","less-loader"]
+				})
 			},
 			{
 				test: /\.styl$/,

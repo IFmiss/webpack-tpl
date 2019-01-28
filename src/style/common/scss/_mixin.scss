@@ -32,9 +32,16 @@
 }
 
 
-@mixin colortext-l ($color1, $color2) {
+@mixin colortext-lt ($color1, $color2) {
 	position: relative;
 	@include background(linear-gradient(to bottom right, $color1, $color2));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+@mixin colortext-l ($color1, $color2) {
+	position: relative;
+	@include background(linear-gradient(to right, $color1, $color2));
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }

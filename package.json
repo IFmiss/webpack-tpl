@@ -4,11 +4,12 @@
   "description": "webpack-tpl",
   "main": "webpack.config.js",
   "dependencies": {
-    "d-js-utils": "^1.0.1"
+    "d-js-utils": "^1.0.8",
+    "mini-css-extract-plugin": "^0.5.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --progress --mode production",
+    "build": "cross-env NODE_ENV=production webpack --progress --mode production",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --progress --colors",
     "watch": "webpack --colors --watch"
   },
@@ -38,6 +39,7 @@
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "node-sass": "^4.9.2",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
     "randomatic": ">=3.0.0",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
