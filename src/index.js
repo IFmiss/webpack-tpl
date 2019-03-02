@@ -1,5 +1,4 @@
-import './style.scss'
-import './style/common/less/test.less'
-import DJS from 'd-js-utils'
-
+import './style.less';
+import DJS from 'd-js-utils';
+import './test.ts';
 DJS.utils.console(`Webpack通用环境`)
