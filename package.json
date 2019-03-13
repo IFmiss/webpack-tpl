@@ -4,7 +4,7 @@
   "description": "webpack-tpl",
   "main": "webpack.config.js",
   "dependencies": {
-    "d-js-utils": "^1.0.8"
+    "@dw/d-utils": "^1.0.94"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -37,13 +37,9 @@
     "html-webpack-plugin": "^3.0.6",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
-    "node-sass": "^4.9.2",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "randomatic": ">=3.0.0",
-    "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
-    "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2",
     "ts-loader": "^5.3.3",
     "typescript": "^3.2.4",
     "uglifyjs-webpack-plugin": "^2.1.1",
