@@ -4,7 +4,8 @@
   "description": "webpack-tpl",
   "main": "webpack.config.js",
   "dependencies": {
-    "@dw/d-utils": "^1.0.94"
+    "@dw/d-utils": "^1.0.94",
+    "postcss-loader": "^3.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -33,10 +34,10 @@
     "cross-env": "^5.2.0",
     "css-loader": "^0.28.10",
     "deep-extend": ">=0.5.1",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.0.6",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
+    "mini-css-extract-plugin": "^0.5.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "randomatic": ">=3.0.0",
     "style-loader": "^0.20.3",

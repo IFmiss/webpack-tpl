@@ -1,33 +1,14 @@
 const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+// MiniCssExtractPlugin
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 // HtmlWebpackPlugin
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const resolve = function (dir) {
-	return path.resolve(__dirname, dir);
-}
-
-const extractCss = new ExtractTextPlugin({
-  filename: "css/[name]-[hash].css",
-  disable: process.env.NODE_ENV === "development"
-});
+const devMode = process.env.NODE_ENV === "development"
 
 module.exports = {
-  entry: {
-    app: './src/index.js'
-  },
-  output: {
-    path: resolve('dist'),
-    publicPath: '',
-    filename: '[name]-[hash].js'
-  },
-  resolve: {
-		alias: {
-			'src': resolve('src'),
-			'script': resolve('src/script')
-		}
-	},
 	plugins: [
 		new HtmlWebpackPlugin ({
       filename: 'index.html',
@@ -36,30 +17,60 @@ module.exports = {
 			favicon: 'src/assets/favicon/favicon.ico'
 		}),
 
-		extractCss
+		new MiniCssExtractPlugin ({
+			filename: "css/[name]-[hash].css",
+  		chunkFilename: "css/[id].css"
+		})
 	],
   module: {
 		rules: [
 			{
 				test: /\.(sa|sc|c)ss$/,
-        use: ExtractTextPlugin.extract({
-					fallback:"style-loader",
-					use:["css-loader","sass-loader"]
-				})
+				use: [
+					devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+					"css-loader",
+					{
+						loader:"postcss-loader",
+            options: {
+                plugins: (loader) => [
+                    require('autoprefixer')()
+                ]
+            }
+					},
+					"sass-loader"
+				]
 			},
 			{
 				test: /\.less$/,
-				use: ExtractTextPlugin.extract({
-					fallback:"style-loader",
-					use:["css-loader","less-loader"]
-				})
+				use: [
+					devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+					"css-loader",
+					{
+						loader:"postcss-loader",
+            options: {
+                plugins: (loader) => [
+                    require('autoprefixer')()
+                ]
+            }
+					},
+					"less-loader"
+				],
 			},
 			{
 				test: /\.styl$/,
-				use: ExtractTextPlugin.extract({
-					fallback:"style-loader",
-					use:["css-loader","stylus-loader"]
-				})
+				use: [
+					devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+					"css-loader",
+					{
+						loader:"postcss-loader",
+            options: {
+                plugins: (loader) => [
+                    require('autoprefixer')()
+                ]
+            }
+					},
+					"stylus-loader"
+				]
 			},
 			{
 				test: /\.(ttf|eot|svg|woff|woff2)$/,
@@ -126,6 +137,11 @@ module.exports = {
 					priority: -10
 				}
 			}
-		}
+		},
+		minimizer: [
+      new UglifyJsPlugin({
+        test: /\.js(\?.*)?$/i,
+      }),
+    ]
 	}
 };

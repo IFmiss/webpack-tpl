@@ -1,4 +1,3 @@
 import './style.less';
-import DJS from '@dw/d-utils';
-import './test.ts';
-DJS.utils.console(`Webpack通用环境`)
+import {utils} from '@dw/d-utils';
+utils.console(`Webpack通用环境`)

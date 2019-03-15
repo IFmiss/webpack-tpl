@@ -1,4 +1,5 @@
 const merge = require('webpack-merge');
+const path = require('path');
 const common = require('./webpack.common.js');
 // css压缩打包相关
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -6,7 +7,18 @@ var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 // 打包清除dist目录
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
+const resolve = function (dir) {
+	return path.resolve(__dirname, dir);
+}
 module.exports = merge(common, {
+  entry: {
+    app: './src/index.js'
+  },
+  output: {
+    path: resolve('dist'),
+    publicPath: '',
+    filename: 'js/[name]-[hash].js'
+  },
   plugins: [
     // 清除
     new CleanWebpackPlugin(['dist'], {
