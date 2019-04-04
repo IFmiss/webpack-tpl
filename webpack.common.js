@@ -118,6 +118,15 @@ module.exports = {
 			},
 		]
 	},
+	resolve: {
+		alias: {
+			'src': resolve('src'),
+			'assets': resolve('src/assets'),
+			'style': resolve('src/style')
+		},
+		extensions: ['.ts', '.tsx', '.js'],
+    modules: ['src' ,'node_modules']
+	},
   optimization: {
 		splitChunks: {
 			chunks: "all",
