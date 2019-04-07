@@ -90,13 +90,14 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@dw/d-utils@^1.0.94":
-  version "1.0.95"
-  resolved "https://registry.yarnpkg.com/@dw/d-utils/-/d-utils-1.0.95.tgz#619d8c20cdf174a3acb2ec31f2fe807ceb9acc36"
-  integrity sha512-dD5TXgb4kvpFtKrtcTsjW+lhnDFh1gGHH9VFeRv3NZQGc75N1c/a3FWRGMGUTbXow12Ev1m12GhLMuZjyED+5A==
+"@dw/d-utils@^1.0.96":
+  version "1.0.96"
+  resolved "https://registry.yarnpkg.com/@dw/d-utils/-/d-utils-1.0.96.tgz#6f27c0d84a76b8155e1de13ab539030397f21fca"
+  integrity sha512-Bs5xfD+kLcjo+BcmtKpOSPdrQWPeKVWNqjxmJ2+SGsHobEJJ5yQgO5iFaEUIYy8rf6OI21tsZ+R0bh+NY0iXuQ==
   dependencies:
     babel-eslint "^10.0.1"
     babel-preset-stage-2 "^6.24.1"
+    lodash "^4.17.11"
     weixin-js-sdk "^1.4.0-test"
 
 "@types/q@^1.5.1":
