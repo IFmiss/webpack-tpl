@@ -4,7 +4,7 @@
   "description": "webpack-tpl",
   "main": "webpack.config.js",
   "dependencies": {
-    "@dw/d-utils": "^1.0.96",
+    "@dw/d-utils": "^1.1.19",
     "postcss-loader": "^3.0.0"
   },
   "scripts": {
