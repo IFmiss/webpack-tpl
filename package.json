@@ -4,8 +4,7 @@
   "description": "webpack-tpl",
   "main": "webpack.config.js",
   "dependencies": {
-    "@dw/d-utils": "^1.1.19",
-    "postcss-loader": "^3.0.0"
+    "@dw/d-utils": "^1.1.19"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -22,13 +21,17 @@
   "author": "daiwei",
   "license": "ISC",
   "devDependencies": {
+    "postcss-loader": "^3.0.0",
     "atob": ">=2.1.0",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.4",
+    "@babel/runtime": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-decorators": "^7.4.0",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@types/node": "^11.13.2",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "better-scroll": "^1.8.4",
+    "babel-loader": "^8.0.5",
     "clean-webpack-plugin": "^1.0.0",
     "compass-mixins": "^0.12.10",
     "cross-env": "^5.2.0",
