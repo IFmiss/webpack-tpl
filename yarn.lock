@@ -671,10 +671,10 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@dw/d-utils@^1.1.19":
-  version "1.1.19"
-  resolved "https://registry.yarnpkg.com/@dw/d-utils/-/d-utils-1.1.19.tgz#55cc25f75a3654f8ab2543b538382888dee14984"
-  integrity sha512-IBF4R1phQTryaN2Czc6qKwBHYAwbTdzXgEiUNNpabck6a48I9ABHQ/Jcsn0JKbZtrwclXCBPTtuZtZaCDxogFQ==
+"@dw/d-utils@^1.1.20":
+  version "1.1.20"
+  resolved "https://registry.yarnpkg.com/@dw/d-utils/-/d-utils-1.1.20.tgz#a3f4785a098277c7d75a5a9597abe39f7a759a6e"
+  integrity sha512-HxWxbEQcF0oJT13zdBPZQxEzD+Tq/grAA4dj7KINH6evOP553UcxzXqcnIvgu1lenkp2djZeMYMHlllkPME4aA==
   dependencies:
     axios "^0.18.0"
     promise.prototype.finally "^3.1.0"
