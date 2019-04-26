@@ -29,7 +29,7 @@ module.exports = {
   module: {
 		rules: [
 			{
-				test: /\.(sa|sc|c)ss$/,
+				test: /\.(c)ss$/,
 				use: [
 					devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
 					"css-loader",
@@ -41,7 +41,7 @@ module.exports = {
                 ]
             }
 					},
-					"sass-loader"
+					"less-loader"
 				]
 			},
 			{
