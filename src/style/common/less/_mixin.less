@@ -47,6 +47,48 @@
 	-webkit-text-fill-color: transparent;
 }
 
+// 添加blur模糊效果
+// 如果不是绝对定位，父元素需要设置相对定位
+// @blur 为模糊的数值
+// @height 区域的高度
+// @position 为位置 默认50%
+.blur(@blur, @height, @position: 50%, @scale: 1.5) {
+	position: absolute;
+	top: 0;
+	left: 0;
+  right: 0;
+  height: @height;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: @position;
+	-webkit-filter: blur(@blur);
+	filter: blur(@blur);
+	-webkit-transform: scale(@scale);
+	transform: scale(@scale);
+	overflow: hidden;
+	&::before{
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+    bottom: 0;
+		z-index: 1;
+		background: rgba(0,0,0,0.1);
+		transition: all 0.3s;
+	}
+	&.draken{
+		&::before{
+			background: rgba(0,0,0,0.3);
+		}
+	}
+}
+
+.blur(@blur, @height, @position: 50%, @scale: 1.5) when (@height = auto) {
+  bottom: 0;
+  height: unset;
+}
+
 // 固定底部
 .fixfooterflex () {
 	html{

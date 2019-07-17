@@ -1,7 +1,12 @@
 {
   "presets": [
     ["@babel/preset-env", {
+<<<<<<< HEAD
       "modules": "auto"
+=======
+      "modules": "commonjs",
+      "loose": false
+>>>>>>> c28ffa8241a561a98c43f83019bca255c27ebafb
     }]
   ],
   "plugins":[

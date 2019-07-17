@@ -4,8 +4,13 @@
   "description": "webpack-tpl",
   "main": "webpack.config.js",
   "dependencies": {
+<<<<<<< HEAD
     "@dw/d-utils": "^1.1.19",
     "extract-text-webpack-plugin": "^4.0.0-beta.0"
+=======
+    "@dw/d-utils": "^1.1.48",
+    "sha1": "^1.1.1"
+>>>>>>> c28ffa8241a561a98c43f83019bca255c27ebafb
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
