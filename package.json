@@ -4,7 +4,8 @@
   "description": "webpack-tpl",
   "main": "webpack.config.js",
   "dependencies": {
-    "@dw/d-utils": "^1.1.19"
+    "@dw/d-utils": "^1.1.19",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -21,17 +22,16 @@
   "author": "daiwei",
   "license": "ISC",
   "devDependencies": {
-    "postcss-loader": "^3.0.0",
-    "atob": ">=2.1.0",
-    "@babel/runtime": "^7.4.3",
     "@babel/core": "^7.4.3",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/plugin-proposal-decorators": "^7.4.0",
     "@babel/plugin-transform-runtime": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
+    "@babel/runtime": "^7.4.3",
     "@types/node": "^11.13.2",
-    "babel-polyfill": "^6.26.0",
+    "atob": ">=2.1.0",
     "babel-loader": "^8.0.5",
+    "babel-polyfill": "^6.26.0",
     "clean-webpack-plugin": "^1.0.0",
     "compass-mixins": "^0.12.10",
     "cross-env": "^5.2.0",
@@ -42,6 +42,7 @@
     "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "^0.5.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-loader": "^3.0.0",
     "randomatic": ">=3.0.0",
     "style-loader": "^0.20.3",
     "ts-loader": "^5.3.3",

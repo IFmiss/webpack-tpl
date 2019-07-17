@@ -12,12 +12,12 @@ const resolve = function (dir) {
 }
 module.exports = merge(common, {
   entry: {
-    app: './src/index.js'
+    app: './src/index.ts'
   },
   output: {
     path: resolve('dist'),
     publicPath: '',
-    filename: 'js/[name]-[hash].js'
+    filename: '[name]-[hash].js'
   },
   plugins: [
     // 清除
