@@ -5,6 +5,7 @@
   "main": "webpack.config.js",
   "dependencies": {
     "d-utils": "^3.0.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "sha1": "^1.1.1"
   },
   "scripts": {

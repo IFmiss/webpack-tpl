@@ -17,7 +17,7 @@ module.exports = merge(common, {
   output: {
     path: resolve('dist'),
     publicPath: '',
-    filename: 'js/[name]-[hash].js'
+    filename: '[name]-[hash].js'
   },
   plugins: [
     // 清除
