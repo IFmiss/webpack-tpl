@@ -4,7 +4,7 @@
   "description": "webpack-tpl",
   "main": "webpack.config.js",
   "dependencies": {
-    "@dw/d-utils": "^1.1.48",
+    "d-utils": "^3.0.0",
     "sha1": "^1.1.1"
   },
   "scripts": {

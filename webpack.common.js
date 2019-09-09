@@ -27,6 +27,7 @@ module.exports = {
 		})
 	],
   module: {
+		unknownContextCritical : false,
 		rules: [
 			{
 				test: /\.(c)ss$/,
