@@ -4,14 +4,15 @@
   "description": "webpack-tpl",
   "main": "webpack.config.js",
   "dependencies": {
-    "d-utils": "^3.0.0",
+    "d-utils": "^3.0.1",
+    "d-utils-lite": "^0.0.3",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "sha1": "^1.1.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env NODE_ENV=production webpack --progress --mode production",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --progress --colors",
+    "build": "webpack --progress --mode production --config ./webpack.prod.js",
+    "dev": "webpack-dev-server --mode development --colors ./webpack.dev.js --progress",
     "watch": "webpack --colors --watch"
   },
   "keywords": [

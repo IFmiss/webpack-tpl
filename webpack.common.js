@@ -1,5 +1,4 @@
 const path = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 // MiniCssExtractPlugin
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -27,7 +26,6 @@ module.exports = {
 		})
 	],
   module: {
-		unknownContextCritical : false,
 		rules: [
 			{
 				test: /\.(c)ss$/,
@@ -129,30 +127,4 @@ module.exports = {
 		extensions: ['.ts', '.tsx', '.js'],
     modules: ['src' ,'node_modules']
 	},
-  optimization: {
-		splitChunks: {
-			chunks: "all",
-			minSize: 30000,
-			minChunks: 3,
-			maxAsyncRequests: 5,
-			maxInitialRequests: 3,
-			name: true,
-			cacheGroups: {
-				default: {
-					minChunks: 2,
-					priority: -20,
-					reuseExistingChunk: true,
-				},
-				vendors: {
-					test: /[\\/]node_modules[\\/]/,
-					priority: -10
-				}
-			}
-		},
-		minimizer: [
-      new UglifyJsPlugin({
-        test: /\.js(\?.*)?$/i,
-      }),
-    ]
-	}
 };
