@@ -30,10 +30,10 @@ function getIPAdress() {
 }
 
 // 打印返回信息
-if (process.env.NODE_ENV === 'development') {
-	let host = dev.devServer.host ? dev.devServer.host : 'localhost'
-	// getIPAdress
-	if (host === '0.0.0.0') host = getIPAdress()
-	const text = `server will start at： http://${host}:${dev.devServer.port}`
-	console.log(chalk.green(text))
-}
+// if (process.env.NODE_ENV === 'development') {
+// 	let host = dev.devServer.host ? dev.devServer.host : 'localhost'
+// 	// getIPAdress
+// 	if (host === '0.0.0.0') host = getIPAdress()
+// 	const text = `server will start at： http://${host}:${dev.devServer.port}`
+// 	console.log(chalk.green(text))
+// }

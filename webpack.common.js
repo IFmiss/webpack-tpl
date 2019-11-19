@@ -15,15 +15,15 @@ const devMode = process.env.NODE_ENV === "development"
 module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin ({
-      filename: 'index.html',
-      template: 'index.html',
+			filename: 'index.html',
+			template: 'index.html',
 			inject: true,
 			favicon: 'src/assets/favicon/favicon.ico'
 		}),
 
 		new MiniCssExtractPlugin ({
 			filename: "css/[name]-[hash].css",
-  		chunkFilename: "css/[id].css"
+  			chunkFilename: "css/[id].css"
 		})
 	],
   module: {
@@ -32,15 +32,16 @@ module.exports = {
 			{
 				test: /\.(c)ss$/,
 				use: [
+					'cache-loader',
 					devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
 					"css-loader",
 					{
 						loader:"postcss-loader",
-            options: {
-                plugins: (loader) => [
-                    require('autoprefixer')()
-                ]
-            }
+						options: {
+							plugins: (loader) => [
+								require('autoprefixer')()
+							]
+						}
 					},
 					"less-loader"
 				]
@@ -48,15 +49,16 @@ module.exports = {
 			{
 				test: /\.less$/,
 				use: [
+					'cache-loader',
 					devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
 					"css-loader",
 					{
 						loader:"postcss-loader",
-            options: {
-                plugins: (loader) => [
-                    require('autoprefixer')()
-                ]
-            }
+						options: {
+							plugins: (loader) => [
+								require('autoprefixer')()
+							]
+						}
 					},
 					"less-loader"
 				],
@@ -64,15 +66,16 @@ module.exports = {
 			{
 				test: /\.styl$/,
 				use: [
+					'cache-loader',
 					devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
 					"css-loader",
 					{
 						loader:"postcss-loader",
-            options: {
-                plugins: (loader) => [
-                    require('autoprefixer')()
-                ]
-            }
+						options: {
+							plugins: (loader) => [
+								require('autoprefixer')()
+							]
+						}
 					},
 					"stylus-loader"
 				]
@@ -80,21 +83,16 @@ module.exports = {
 			{
 				test: /\.(ttf|eot|svg|woff|woff2)$/,
 				use: [
+					'cache-loader',
 					{
 						loader: 'url-loader'
 					}
-        ]
-			},
-			{
-				test: /\.js$/,
-				exclude: /(node_modules)/,
-				use: {
-					loader: 'babel-loader'
-				}
+        		]
 			},
 			{
 				test: /\.ts$/,
 				use: [
+					'cache-loader',
 					{loader: 'babel-loader',},
 					{
 						loader: 'ts-loader',
@@ -110,26 +108,27 @@ module.exports = {
 			{
 				test: /\.(png|jpg|gif)$/,
 				use: [
+					'cache-loader',
 					{
 						loader: 'url-loader',
 						options: {
 							limit: 8192
 						}
 					}
-        ]
+       			]
 			},
 		]
 	},
 	resolve: {
 		alias: {
 			'@': resolve('src'),
-			'assets': resolve('src/assets'),
-			'style': resolve('src/style')
+			assets: resolve('src/assets'),
+			style: resolve('src/style')
 		},
 		extensions: ['.ts', '.tsx', '.js'],
-    modules: ['src' ,'node_modules']
+    	modules: ['src' ,'node_modules']
 	},
-  optimization: {
+  	optimization: {
 		splitChunks: {
 			chunks: "all",
 			minSize: 30000,
@@ -150,9 +149,10 @@ module.exports = {
 			}
 		},
 		minimizer: [
-      new UglifyJsPlugin({
-        test: /\.js(\?.*)?$/i,
-      }),
-    ]
+			new UglifyJsPlugin({
+				test: /\.js(\?.*)?$/i,
+				parallel: true
+			}),
+		]
 	}
 };

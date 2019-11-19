@@ -1,9 +1,8 @@
 {
   "presets": [
     ["@babel/preset-env", {
-      "modules": "commonjs",
-      "loose": false
-    }]
+      "modules": "false",
+    }],
   ],
   "plugins":[
     ["@babel/plugin-proposal-decorators", { "legacy": true }],

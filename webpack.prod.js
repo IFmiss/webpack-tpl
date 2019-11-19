@@ -1,6 +1,8 @@
 const merge = require('webpack-merge');
 const path = require('path');
 const common = require('./webpack.common.js');
+const HappyPack = require('happypack')
+const AutoDllPlugin = require('autodll-webpack-plugin')
 // css压缩打包相关
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
@@ -19,6 +21,23 @@ module.exports = merge(common, {
     publicPath: '',
     filename: '[name]-[hash].js'
   },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: [
+          'happypack/loader?id=js'
+        ]
+      },
+      {
+        test: /\.ts$/,
+        use: [
+          'happypack/loader?id=js',
+          'happypack/loader?id=ts'
+        ]
+      },
+    ],
+  },
   plugins: [
     // 清除
     new CleanWebpackPlugin(['dist'], {
@@ -33,6 +52,42 @@ module.exports = merge(common, {
         preset: ['default', { discardComments: { removeAll: true } }],
       },
       canPrint: true
+    }),
+
+    // happyPack
+    new HappyPack({
+      id: 'js',
+      loaders: [
+        'cache-loader',
+        {
+          loader: 'babel-loader',
+          options: {
+            presets: ["@babel/preset-env"],
+            cacheDirectory: true,
+          },
+          exclude: /node_modules/,
+        }
+      ],
+      verbose: true,
+    }),
+
+    new HappyPack({
+      id: 'ts',
+      loaders: [
+        'cache-loader',
+        "ts-loader?" + JSON.stringify({happyPackMode: true})
+      ],
+      verbose: true,
+    }),
+
+    new AutoDllPlugin({
+      inject: true,
+      filename: '[name][hash:8].js',
+      entry: {
+        vendor: [
+          'd-utils'
+        ]
+      }
     })
   ]
 });

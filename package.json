@@ -4,13 +4,17 @@
   "description": "webpack-tpl",
   "main": "webpack.config.js",
   "dependencies": {
+    "@dw/webpack-prompt-plugin": "^1.0.8",
+    "autodll-webpack-plugin": "^0.4.2",
+    "cache-loader": "^4.1.0",
     "d-utils": "^3.0.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "happypack": "^5.0.1",
     "sha1": "^1.1.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env NODE_ENV=production webpack --progress --mode production",
+    "build": "cross-env NODE_ENV=production webpack --progress --profile --mode production",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --progress --colors",
     "watch": "webpack --colors --watch"
   },
@@ -46,7 +50,7 @@
     "postcss-loader": "^3.0.0",
     "randomatic": ">=3.0.0",
     "style-loader": "^0.20.3",
-    "ts-loader": "^5.3.3",
+    "ts-loader": "^6.2.1",
     "typescript": "^3.2.4",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "url-loader": "^1.0.1",
